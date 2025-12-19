@@ -1,48 +1,180 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap");
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: #f7f7f5;
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #f6f6f6;
   color: #111;
 }
 
 /* HEADER */
-header {
-  background: #0b0b0b;
+.header {
+  position: sticky;
+  top: 0;
+  background: #000;
   color: #fff;
-  padding: 24px 60px;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header nav a,
+.header nav button {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* PAGE LAYOUT */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.page h2 {
+  margin-bottom: 30px;
+}
+
+/* PRODUCT GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* BUTTONS */
+button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* CART */
+.cart-item {
+  background: #fff;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-header h1 {
-  font-family: "Playfair Display", serif;
-  font-weight: 600;
-  font-size: 28px;
+/* PRODUCT IMAGE */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 16px;
 }
 
-/* PAGE WRAPPER */
-.container {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 24px;
+/* LOGIN PAGE */
+.login-wrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* PRODUCT GRID */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+.login-card {
+  width: 360px;
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  text-align: center;
 }
-body {
-  font-family: "Inter", sans-serif;
-  background: #f6f6f6;
-  color: #111;
+
+.login-card h2 {
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.divider {
+  margin: 18px 0;
+  font-size: 12px;
+  color: #999;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.google-btn img {
+  width: 18px;
+}
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-controls button {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
 }
