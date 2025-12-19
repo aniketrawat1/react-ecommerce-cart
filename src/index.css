@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f7f7f5;
+  color: #111;
+}
+
+/* HEADER */
+header {
+  background: #0b0b0b;
+  color: #fff;
+  padding: 24px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+/* PAGE WRAPPER */
+.container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background: #f6f6f6;
+  color: #111;
+}
