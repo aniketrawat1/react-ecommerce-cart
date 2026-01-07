@@ -1,16 +1,108 @@
-# React + Vite
+# Mini E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a mini e-commerce web app built using **React**.  
+I created this project to practice real-world frontend concepts like cart management, authentication, and payment flow.
 
-Currently, two official plugins are available:
+The focus of this project is **functionality and clean logic**, not heavy UI libraries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## What this project currently does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Cart
+- Add products to cart
+- Increase and decrease product quantity
+- Remove items or clear the cart
+- Cart count updates automatically in the header
+- Cart state is handled using React Context
 
-## Expanding the ESLint configuration
+### Login
+- Firebase Authentication
+- Email & password login
+- Google login
+- User must be logged in before checkout
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Payments (Test Mode)
+- Razorpay Checkout integration (test mode only)
+- Total amount comes directly from cart state
+- Payment popup opens on “Proceed to Checkout”
+- On successful payment, the cart is cleared
+- No real money is involved
+
+This payment setup is meant for **demo and learning purposes**.
+
+## Tech used
+
+- React (Vite)
+- React Router
+- Context API
+- Firebase Authentication
+- Razorpay Checkout (Test Mode)
+- Plain CSS
+
+---
+
+## Payment testing
+
+Razorpay is running in **test mode**.
+
+Use these test card details:
+Card number: 4111 1111 1111 1111
+Expiry: Any future date
+CVV: Any 3 digits
+OTP: 123456
+
+No actual payment is processed.
+
+## Folder overview
+src/
+components/
+context/
+AuthContext.jsx
+CartContext.jsx
+Header.jsx
+ProductCard.jsx
+
+pages/
+Home.jsx
+Cart.jsx
+Login.jsx
+
+firebase/
+firebase.js
+
+data/
+products.js
+
+## Environment variables
+
+Firebase keys are stored in a `.env` file and are **not committed** to GitHub.
+
+Example
+``env
+VITE_FIREBASE_API_KEY=xxxx.
+
+Current status:
+
+Cart functionality complete
+Authentication complete
+Payment flow integrated (test mode)
+UI intentionally kept simple
+Future plans
+Backend for payment verification
+Order history page
+Better checkout confirmation
+
+Admin product management (optional)
+
+Author
+
+Aniket Rawat
+GitHub: https://github.com/aniketrawat1
+
+This project is built for learning and portfolio purposes.
+
+
+
+
+
