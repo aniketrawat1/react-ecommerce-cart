@@ -3,20 +3,11 @@ import { useAuth } from "../components/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-  const {
-    cart,
-    increaseQty,
-    decreaseQty,
-    clearCart,
-  } = useCart();
-
+  const { cart, increaseQty, decreaseQty, clearCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  if (cart.length === 0) {
-    return <h2 className="page">Cart is empty</h2>;
-  }
-
+  
   const total = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -25,12 +16,37 @@ export default function Cart() {
   const handleProceed = () => {
     if (!user) {
       navigate("/login");
-    } else {
-      alert("Checkout coming next 🚀");
-      // later → navigate("/checkout")
+      return;
     }
+
+    const options = {
+      key: "rzp_test_1DP5mmOlF5G5ag",
+      amount: total * 100,
+      currency: "INR",
+      name: "Mini E-Commerce Store",
+      description: "Order Payment",
+      handler: function () {
+        alert("Payment Successful 🎉");
+        clearCart();
+      },
+      prefill: {
+        email: user.email,
+      },
+      theme: {
+        color: "#000000",
+      },
+    };
+
+    const razorpay = new window.Razorpay(options);
+    razorpay.open();
   };
 
+  // empty cart UI
+  if (cart.length === 0) {
+    return <h2 className="page">Cart is empty</h2>;
+  }
+
+  // MAIN UI (unchanged)
   return (
     <div className="page">
       <h2>Your Cart</h2>
